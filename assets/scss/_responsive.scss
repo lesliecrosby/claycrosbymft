@@ -1,0 +1,98 @@
+/************************************************
+
+Stylesheet: Responsive Stylesheet
+
+*************************************************/
+// small: 0,
+// medium: 480px,
+// large: 768px,
+// xlarge: 1024px,
+// xxlarge: 1200px
+
+
+// 1120px +under
+@media screen and (max-width: 70em) {
+  #workshops-1 .service {
+    width: 100% !important;
+  }
+}
+
+
+// 1024px +up
+@media screen and (min-width: 64em) {
+  .office-location {
+    width: 1000px;
+    height: 350px;
+  }
+}
+
+
+// 1024px +under
+@media screen and (max-width: 64em) {
+  .show-for-xlarge {
+    display: none !important;
+  }
+}
+
+
+// 768px +up
+@media print, screen and (min-width: 48em)and (max-width: 64em) {
+  .office-location {
+    width: 450px;
+    height: 200px;
+  }
+}
+
+
+// 768px +under
+@media print, screen and (max-width: 48em) {
+  .office-location {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+
+// 480px +up
+@media print, screen and (min-width: 30em) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  h6 {
+    font-size: 0.9em;
+  }
+  .focus-row {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+// 480px +under
+@media print, screen and (max-width: 30em) {
+
+  .menu > li {
+  	display: block !important;
+  }
+
+  .page-title {
+    padding: 100px 0 !important;
+  }
+
+  .office-location {
+    width: 250px;
+    height: 250px;
+  }
+
+}
