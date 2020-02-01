@@ -28,13 +28,21 @@
 								<div class="contact-info-sm ">
 									<h4>Contact</h4>
 	                <div class="contact-item phone">
-	                  <a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone', true ) ); ?>" target="_blank">
-	                    <i class="fa fa-phone"></i>
-	                  </a>
-	                  <strong>Phone</strong>
+	                  <i class="fa fa-phone" style="color:#2a475e;"></i>
+	                  <strong>Phone (Germany)</strong>
 	                  <a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone', true ) ); ?>" target="_blank">
 											<h6>
 												<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone', true ) ); ?>
+											</h6>
+										</a>
+                  </div>
+
+                  <div class="contact-item phone">
+	                  <i class="fa fa-phone" style="color:#2a475e;"></i>
+	                  <strong>Phone (USA)</strong>
+	                  <a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone2', true ) ); ?>" target="_blank">
+											<h6>
+												<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone2', true ) ); ?>
 											</h6>
 										</a>
 	                </div>
@@ -53,12 +61,12 @@
 	                </div>
 
 									<div class="contact-item location">
-										<a href=" https://www.google.com/maps/place/554+S+San+Vicente+Blvd,+Los+Angeles,+CA+90048/@34.0673291,-118.3757737,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2b948937f687d:0x904ffb819ebed284!8m2!3d34.0673291!4d-118.373585" target="_blank" rel="noopener noreferrer">
+										<a href="<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_locationurl', true ) ); ?>" target="_blank" rel="noopener noreferrer">
 											<i class="fa fa-map-marker"></i>
 										</a>
 										<strong>Office Location</strong>
 										<br>
-										<a href=" https://www.google.com/maps/place/554+S+San+Vicente+Blvd,+Los+Angeles,+CA+90048/@34.0673291,-118.3757737,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2b948937f687d:0x904ffb819ebed284!8m2!3d34.0673291!4d-118.373585" target="_blank" rel="noopener noreferrer">
+										<a href="<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_locationurl', true ) ); ?>" target="_blank" rel="noopener noreferrer">
 											<h6>
 												<?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_bio_location', true ) ); ?>
 											</h6>
@@ -103,14 +111,6 @@
                   <div class="large-12 columns">
                     <div class="affiliations">
                       <h4>Professional Affiliations</h4>
-                      <!-- <ul>
-                        <li><a href="http://www.camft.org/" target="_blank" rel="noopener noreferrer">Clinical Member, California Association of Marriage and Family Therapists</a></li>
-                        <li><a href="https://www.aamft.org/iMIS15/AAMFT/" target="_blank" rel="noopener noreferrer">Clinical Member, American Association of Marriage and Family Therapists</a></li>
-                        <li><a href="http://parnellemdr.com/" target="_blank" rel="noopener noreferrer">Charter Member, Parnell Institute</a></li>
-                        <li><a href="http://www.iceeft.com/index.php" target="_blank" rel="noopener noreferrer">Member, ICEEFT (International Centre for Excellence in Emotionally Focused Therapy)</a></li>
-                        <li><a href="http://laceft.org/" target="_blank" rel="noopener noreferrer">Member, LACEFT (Los Angeles Center for Emotionally Focused Therapy)</a></li>
-                        <li><a href="https://sccc-la.org/members/ccrosby/" target="_blank" rel="noopener noreferrer">Alumnus, Southern California Counseling Center</a></li>
-                      </ul> -->
 											<?php
 												cmb2_output_link_list( '_clayjoints_bio_repeat_group_1' );
 											?>
