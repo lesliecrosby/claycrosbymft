@@ -488,9 +488,13 @@ function clayjoints_register_bio_page_metabox() {
 		'type' => 'title',
 	) );
   $cmb_bio_page->add_field( array(
-		'name' => esc_html__( 'Phone', 'cmb2' ),
-		'desc' => esc_html__( '123-456-7890', 'cmb2' ),
+		'name' => esc_html__( 'Phone - Germany', 'cmb2' ),
 		'id'   => $prefix . 'phone',
+		'type' => 'text',
+	) );
+	$cmb_bio_page->add_field( array(
+		'name' => esc_html__( 'Phone - USA', 'cmb2' ),
+		'id'   => $prefix . 'phone2',
 		'type' => 'text',
 	) );
   $cmb_bio_page->add_field( array(
@@ -499,10 +503,14 @@ function clayjoints_register_bio_page_metabox() {
 		'type' => 'text',
 	) );
   $cmb_bio_page->add_field( array(
-		'name' => esc_html__( 'Office Location', 'cmb2' ),
-		'desc' => esc_html__( 'Editing this will only update displayed address, please contact Leslie to update Google Maps link', 'cmb2' ),
+		'name' => esc_html__( 'Office Location - Text', 'cmb2' ),
 		'id'   => $prefix . 'location',
 		'type' => 'textarea',
+	) );
+  $cmb_bio_page->add_field( array(
+		'name' => esc_html__( 'Office Location - Google Maps URL', 'cmb2' ),
+		'id'   => $prefix . 'locationurl',
+		'type' => 'text_url',
 	) );
   $cmb_bio_page->add_field( array(
 		'name' => esc_html__( 'Facebook', 'cmb2' ),
