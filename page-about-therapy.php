@@ -74,14 +74,13 @@
                 <div class="row expanded">
                   <div class="large-4 columns">
                     <div class="inner-stuff">
-											<a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_phone', true ) ); ?>" target="_blank" rel="noopener noreferrer">
-	                      <i class="fa fa-phone"></i>
-	                      <br>
-                      </a>
+                      <i class="fa fa-phone"></i>
+                      <br>
 											<strong>Phone</strong>
-											<a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_phone', true ) ); ?>" target="_blank" rel="noopener noreferrer">
-                      	<h6><?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_phone', true ) ); ?></h6>
-											</a>
+											<!-- <a href="tel:<?php //echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_phone', true ) ); ?>" target="_blank" rel="noopener noreferrer">
+                      	<h6><?php //echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_phone', true ) ); ?></h6>
+											</a> -->
+                      <?php echo get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_phones', true ); ?>
                     </div>
                   </div>
 
@@ -100,12 +99,24 @@
 
                   <div class="large-4 columns">
                     <div class="inner-stuff">
-											<a href="https://www.google.com/maps/place/554+S+San+Vicente+Blvd,+Los+Angeles,+CA+90048/@34.0673291,-118.3757737,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2b948937f687d:0x904ffb819ebed284!8m2!3d34.0673291!4d-118.373585" target="_blank" rel="noopener noreferrer">
-	                      <i class="fa fa-map-marker"></i>
-	                      <br>
-                      </a>
+                      <?php
+                      $location_url = get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_location_url', true );
+                      if ( $location_url ): ?>
+                        <a href="<?php echo esc_url( $location_url ); ?>" target="_blank" rel="noopener noreferrer">
+                      <?php endif; ?>
+                        <i class="fa fa-map-marker"></i>
+                        <br>
+                      <?php if ( $location_url ): ?>
+                        </a>
+                      <?php endif; ?>
 											<strong>Office Location</strong>
-                      <h6><?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_location', true ) ); ?></h6>
+                      <?php if ( $location_url ): ?>
+                        <a href="<?php echo esc_url( $location_url ); ?>" target="_blank" rel="noopener noreferrer">
+                      <?php endif; ?>
+                      <?php echo get_post_meta( get_the_ID(), '_clayjoints_abouttherapy_location_wysiwyg', true ); ?>
+                      <?php if ( $location_url ): ?>
+                        </a>
+                      <?php endif; ?>
                     </div>
                   </div>
                 </div>

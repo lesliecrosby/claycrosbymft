@@ -641,23 +641,36 @@ function clayjoints_register_abouttherapy_page_metabox() {
 		'id'   => $prefix . 'title2',
 		'type' => 'title',
 	) );
-  $cmb_about_page->add_field( array(
-		'name' => esc_html__( 'Phone', 'cmb2' ),
-		'desc' => esc_html__( '123-456-7890', 'cmb2' ),
-		'id'   => $prefix . 'phone',
-		'type' => 'text',
+  // $cmb_about_page->add_field( array(
+	// 	'name' => esc_html__( 'Phone', 'cmb2' ),
+	// 	'desc' => esc_html__( '123-456-7890', 'cmb2' ),
+	// 	'id'   => $prefix . 'phone',
+	// 	'type' => 'text',
+	// ) );
+	$cmb_about_page->add_field( array(
+		'name' => esc_html__( 'Office Phone(s)', 'cmb2' ),
+		'id'   => $prefix . 'phones',
+		'type' => 'wysiwyg',
 	) );
   $cmb_about_page->add_field( array(
 		'name' => esc_html__( 'Email', 'cmb2' ),
-		// 'desc' => esc_html__( 'field description (optional)', 'cmb2' ),
+
 		'id'   => $prefix . 'email',
 		'type' => 'text',
 	) );
-  $cmb_about_page->add_field( array(
-		'name' => esc_html__( 'Office Location', 'cmb2' ),
-		'desc' => esc_html__( 'Editing this will only update displayed address, please contact Leslie to update Google Maps link', 'cmb2' ),
-		'id'   => $prefix . 'location',
-		'type' => 'textarea',
+	$cmb_about_page->add_field( array(
+		'name' => esc_html__( 'Office Location - URL', 'cmb2' ),
+		'desc' => esc_html__( 'ex. Google Maps link (optional)', 'cmb2' ),
+		'id'   => $prefix . 'location_url',
+		'type' => 'text_url',
+	));
+	$cmb_about_page->add_field( array(
+		'name' => esc_html__( 'Office Location - WYSIWYG', 'cmb2'),
+		'id'   => $prefix . 'location_wysiwyg',
+		'type' => 'wysiwyg',
+		// 'options' => array(
+		// 	'wpautop' => true,
+		// ),
 	) );
 
 

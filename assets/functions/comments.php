@@ -33,3 +33,39 @@ function joints_comments($comment, $args, $depth) {
 	<!-- </li> is added by WordPress automatically -->
 <?php
 }
+
+/**
+ * Filter default comment form fields
+ *
+ * 1. Remove "website" field
+ * 2. Make cookie checkbox text editable
+ *
+ */
+function clayjoints_filter_comment_fields( $fields ) {
+
+	unset( $fields['url'] );
+
+	// only proceed if comments cookies opt-in checkbox is set to display
+	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
+
+		// only proceed if ACF is activated
+		if ( function_exists( 'acf_add_options_page' ) ) {
+
+			// get new cookie text from ACF Custom Options page
+			$comment_cookie_text = get_field( 'comment_cookie_text', 'option', false );
+
+			// only proceed if cookie text field is filled out
+			if ( $comment_cookie_text ) {
+
+				$commenter = wp_get_current_commenter();
+				$consent = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+
+				$fields['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"' . $consent . ' />' . '<label for="wp-comment-cookies-consent" style="display:inline;">' . $comment_cookie_text . '</label></p>';
+
+			}
+		}
+	}
+
+	return $fields;
+}
+add_filter( 'comment_form_fields', 'clayjoints_filter_comment_fields' );
