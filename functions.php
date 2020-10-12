@@ -571,7 +571,7 @@ function clayjoints_register_abouttherapy_page_metabox() {
 	 */
 	$cmb_about_page = new_cmb2_box( array(
 		'id'           => $prefix . 'metabox',
-		'title'        => esc_html__( 'About Therapy Editable Fields', 'cmb2' ),
+		'title'        => __( 'About Therapy Editable Fields', 'cmb2' ),
 		'object_types' => array( 'page', ), // Post type
 		'context'      => 'normal',
 		'priority'     => 'high',
