@@ -195,7 +195,11 @@ function clayjoints_register_home_page_metabox() {
     'context'      => 'normal',
     'priority'     => 'high',
     'show_names'   => true, // Show field names on the left
-    'show_on'      => array( 'id' => array( 99, 6 ) ), // Specific post ID(s) to display this metabox
+		// 'show_on'      => array( 'id' => array( 99, 6 ) ), // Specific post ID(s) to display this metabox
+		'show_on'      => [
+			'key' => 'page-template',
+			'value' => 'page-home.php'
+		]
   ) );
 
   $cmb_home_page->add_field( array(
