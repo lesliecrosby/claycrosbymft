@@ -79,6 +79,35 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 
+/**
+ * CMB2 Debug Option
+ */
+add_action( 'cmb2_admin_init', 'clayjoints_cmb2_debug_info' );
+/**
+ * Adds a wp-admin notice with some CMB2 debug info, as long as the debug query arg is set.
+ * wp-admin/?clayjoints_cmb2_debug=1
+ */
+function clayjoints_cmb2_debug_info() {
+    if ( ! empty( $_GET['clayjoints_cmb2_debug'] ) ) {
+        add_action( 'all_admin_notices', 'clayjoints_output_cmb2_debug_info' );
+    }
+}
+
+/**
+ * Outputs a wp-admin notice with some CMB2 debug info.
+ */
+function clayjoints_output_cmb2_debug_info() {
+    echo '
+    <div class="notice notice-warning notice-alt is-dismissible">
+        <h2>CMB2 Debug Info</h2>
+        <pre>'. print_r( [
+            'CMB2_VERSION' => defined( 'CMB2_VERSION' ) ? CMB2_VERSION : 'not defined',
+            'CMB2_LOADED' => defined( 'CMB2_LOADED' ) ? CMB2_LOADED : 'not defined',
+            'CMB2_DIR' => defined( 'CMB2_DIR' ) ? CMB2_DIR : 'not defined',
+        ], true ) .'</pre>
+    </div>
+    ';
+}
 
 /**
  * Include and setup custom metaboxes and fields.
