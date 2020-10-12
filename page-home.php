@@ -19,8 +19,7 @@
 					<div class="full-width-shader">
 						<div class="row">
 							<div class="small-offset-1 small-10 columns">
-								<!-- <h2>I believe that each of us has the innate ability and desire to lead a fulfilling life and have satisfying relationships.</h2> -->
-								<h2><?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_home_hero', true ) ); ?></h2>
+								<h2><?php echo the_field( 'hero' ); ?></h2>
 							</div>
 						</div>
 					</div>
@@ -28,66 +27,51 @@
 				<div id="home-2" class="expanded row">
 					<div class="row">
 						<div class="small-offset-1 small-10 medium-offset-2 medium-8 columns">
-							<h3>
-								<?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_home_body1', true ) ); ?>
-							</h3>
+							<h3><?php echo the_field( 'body1' ); ?></h3>
 						</div>
 					</div>
 				</div>
 				<div id="home-3" class="expanded row">
 					<div class="row">
 						<div class="small-offset-1 small-10 medium-offset-2 medium-8 columns">
-							<h4>
-								<!-- I have experience working with people who are dealing with a variety of issues including: -->
-								<?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_home_body2', true ) ); ?>
-							</h4>
+							<h4 style="margin-bottom: 30px;"><?php echo the_field( 'body2' ); ?></h4>
 						</div>
 						<div class="small-offset-1 small-5 medium-offset-3 medium-3 columns">
-							<!-- <ul>
-							 	<li>Depression</li>
-							 	<li>Anxiety</li>
-							 	<li>Grief / Loss</li>
-							 	<li>Low Self-Esteem</li>
-							 	<li>Anger</li>
-							 	<li>Stress</li>
-							</ul> -->
-							<?php
-								cmb2_output_unordered_list( '_clayjoints_home_repeat_group_1' );
-							?>
+							<?php if ( have_rows( 'repeat_group_1' ) ): ?>
+								<ul class="unordered-list-wrap">
+								<?php while ( have_rows( 'repeat_group_1' ) ): the_row(); ?>
+									<li class="unordered-list-item"><?php echo the_sub_field( 'list_item' ); ?></li>
+								<?php endwhile; ?>
+								</ul>
+							<?php endif;?>
 						</div>
 						<div class="small-5 medium-3 columns float-left">
-							<!-- <ul>
-							 	<li>Isolation / Loneliness</li>
-							 	<li>Parenting Issues</li>
-							 	<li>Addictions</li>
-							 	<li>Childhood Abuse</li>
-							 	<li style="line-height: 17px; margin-top: 5px;">Relationship Difficulties
-								<em>(both at home and in the workplace)</em></li>
-							</ul> -->
-							<?php
-								cmb2_output_unordered_list( '_clayjoints_home_repeat_group_2' );
-							?>
+							<?php if ( have_rows( 'repeat_group_2' ) ): ?>
+								<ul class="unordered-list-wrap">
+								<?php while ( have_rows( 'repeat_group_2' ) ): the_row(); ?>
+									<li class="unordered-list-item"><?php echo the_sub_field( 'list_item' ); ?></li>
+								<?php endwhile; ?>
+								</ul>
+							<?php endif;?>
 						</div>
 					</div>
 				</div>
 				<div id="home-4" class="expanded row">
 					<div class="row">
 						<div class="small-offset-1 small-10 medium-offset-2 medium-8 columns">
-							<h4>
-								<!-- In addition, a great deal of my practice focuses on the following areas of specialization: -->
-								<?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_home_body3', true ) ); ?>
-							</h4>
+							<h4 style="margin-bottom: 30px;"><?php echo the_field( 'body3' ); ?></h4>
 						</div>
 						<div class="small-offset-2 small-8 medium-offset-3 medium-6 columns float-left">
-							<!-- <ul>
-							 	<li><a href="#">Highly Creative Individuals and Couples</a></li>
-							 	<li><a href="#">Emotionally Focused Couples Therapy (EFT)</a></li>
-							 	<li><a href="#">Attachment Focused EMDR</a></li>
-							 	<li><a href="#">Life Transitions</a></li>
-							</ul> -->
-							<?php
-								cmb2_output_link_list( '_clayjoints_home_repeat_group_3' );
-							?>
+							<?php if ( have_rows( 'links' ) ): ?>
+								<ul class="link-list-wrap">
+								<?php
+									while ( have_rows( 'links' ) ): the_row();
+									$link = get_sub_field( 'url' );
+								?>
+									<li class="link-list-item"><a href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></li>
+								<?php endwhile; ?>
+								</ul>
+							<?php endif;?>
 						</div>
 					</div>
 					<hr />
