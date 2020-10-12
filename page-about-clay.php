@@ -26,65 +26,61 @@
 								</div>
 
 								<div class="contact-info-sm ">
-									<h4>Contact</h4>
+									<h4><?php echo the_field( 'contact_title' ); ?></h4>
 	                <div class="contact-item phone">
 	                  <i class="fa fa-phone" style="color:#2a475e;"></i>
 	                  <strong>Phone (Germany)</strong>
-	                  <a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone', true ) ); ?>" target="_blank">
-											<h6>
-												<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone', true ) ); ?>
-											</h6>
+	                  <a href="tel:<?php echo the_field( 'phone_germany' ); ?>">
+											<h6><?php echo the_field( 'phone_germany' ); ?></h6>
 										</a>
                   </div>
 
                   <div class="contact-item phone">
 	                  <i class="fa fa-phone" style="color:#2a475e;"></i>
 	                  <strong>Phone (USA)</strong>
-	                  <a href="tel:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone2', true ) ); ?>" target="_blank">
-											<h6>
-												<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_phone2', true ) ); ?>
-											</h6>
+	                  <a href="tel:<?php echo the_field( 'phone_usa' ); ?>">
+											<h6><?php echo the_field( 'phone_usa' ); ?></h6>
 										</a>
 	                </div>
 
 	                <div class="contact-item email">
-	                  <a href="mailto:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_email', true ) ); ?>" target="_blank">
+	                  <a href="mailto:<?php echo the_field( 'email' ); ?>">
 	                    <i class="fa fa-envelope"></i>
 	                  </a>
 	                  <strong>Email</strong>
 	                  <br>
-	                  <a href="mailto:<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_email', true ) ); ?>" target="_blank">
-											<h6>
-												<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_email', true ) ); ?>
-											</h6>
+	                  <a href="mailto:<?php echo the_field( 'email' ); ?>">
+											<h6><?php echo the_field( 'email' ); ?></h6>
 										</a>
 	                </div>
 
 									<div class="contact-item location">
-										<a href="<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_locationurl', true ) ); ?>" target="_blank" rel="noopener noreferrer">
+										<a href="<?php echo the_field( 'office_location_link' ); ?>" target="_blank" rel="noopener noreferrer">
 											<i class="fa fa-map-marker"></i>
 										</a>
 										<strong>Office Location</strong>
 										<br>
-										<a href="<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_locationurl', true ) ); ?>" target="_blank" rel="noopener noreferrer">
-											<h6>
-												<?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_bio_location', true ) ); ?>
-											</h6>
+										<a href="<?php echo the_field( 'office_location_link' ); ?>" target="_blank" rel="noopener noreferrer">
+											<h6><?php echo the_field( 'office_location_text' ); ?></h6>
 										</a>
 									</div>
 
+									<?php
+										$facebook = get_field( 'facebook' );
+										if ( $facebook ):
+									?>
 									<div class="facebook">
-	                  <a href="<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_facebook', true ) ); ?>" target="_blank" rel="noopener noreferrer">
+	                  <a href="<?php echo $facebook['url'] ?>" target="_blank" rel="noopener noreferrer">
 	                    <i class="fa fa-facebook"></i>
 	                  </a>
-	                  <strong>Facebook</strong>
+										<strong>Facebook</strong>
 	                  <br>
-	                  <a href="<?php echo esc_html( get_post_meta( get_the_ID(), '_clayjoints_bio_facebook', true ) ); ?>" target="_blank" rel="noopener noreferrer">
-											<h6>
-												Follow Clay on Facebook
-											</h6>
+	                  <a href="<?php echo $facebook['url'] ?>" target="_blank" rel="noopener noreferrer">
+											<h6><?php echo $facebook['title'] ?></h6>
 										</a>
 	                </div>
+									<?php endif; ?>
+
 								</div>
 							</div>
 
@@ -94,26 +90,24 @@
 
                   <div class="large-12 columns">
                     <div class="education">
-                      <h4>Education</h4>
-                      <ul>
-                        <li>
-                          <strong>Antioch University Los Angeles</strong>
-                          <br class="hide-for-medium">Master of Arts, Clinical Psychology
-                        </li>
-                        <li>
-                          <strong>University of Pennsylvania</strong>
-                          <br class="hide-for-medium">Bachelor of Arts, English (Psychology minor)
-                        </li>
-                      </ul>
+                      <h4><?php echo the_field( 'education_title' ); ?></h4>
+                      <?php echo the_field( 'education_text' ); ?>
                     </div>
                   </div>
 
                   <div class="large-12 columns">
                     <div class="affiliations">
-                      <h4>Professional Affiliations</h4>
-											<?php
-												cmb2_output_link_list( '_clayjoints_bio_repeat_group_1' );
-											?>
+                      <h4><?php echo the_field( 'affiliations_title' ); ?></h4>
+											<?php if ( have_rows( 'affiliations' ) ): ?>
+												<ul class="link-list-wrap">
+												<?php
+													while ( have_rows( 'affiliations' ) ): the_row();
+													$link = get_sub_field( 'link' );
+												?>
+													<li class="link-list-item"><a href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></li>
+												<?php endwhile; ?>
+												</ul>
+											<?php endif;?>
                     </div>
                     <div class="buttons">
                       <div class="psychology-today" style="margin-bottom: 20px;">
@@ -141,10 +135,14 @@
         <div id="bio-2" class="expanded row">
           <div class="row">
             <div class="small-offset-1 small-10 large-offset-0 large-12 columns">
-              <h4>Selected Certificates / Advanced Trainings</h4>
-							<?php
-								cmb2_output_unordered_list( '_clayjoints_bio_repeat_group_2' );
-							?>
+              <h4><?php echo the_field( 'certificates_title' ); ?></h4>
+							<?php if ( have_rows( 'certificates' ) ): ?>
+								<ul class="unordered-list-wrap">
+								<?php while ( have_rows( 'certificates' ) ): the_row(); ?>
+									<li class="unordered-list-item"><?php echo the_sub_field( 'list_item' ); ?></li>
+								<?php endwhile; ?>
+								</ul>
+							<?php endif;?>
             </div>
           </div>
         </div>
@@ -152,8 +150,8 @@
         <div id="bio-3" class="expanded row">
           <div class="row">
             <div class="small-offset-1 small-10 large-offset-0 large-12 columns">
-							<h4>Bio</h4>
-							<?php echo wpautop( get_post_meta( get_the_ID(), '_clayjoints_bio_bio', true ) ); ?>
+							<h4><?php echo the_field( 'bio_title' ); ?></h4>
+							<?php echo the_field( 'bio_text' ); ?>
             </div>
           </div>
 
