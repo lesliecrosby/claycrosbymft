@@ -73,12 +73,12 @@ HEADER STYLES
 	}
 }
 
-#main {
-	header {
-	text-align: center;
-	margin-bottom: 80px;
-	}
-}
+// #main {
+// 	header {
+// 	text-align: center;
+// 	margin-bottom: 80px;
+// 	}
+// }
 
 .article-header {
 	.page-title {
@@ -86,6 +86,7 @@ HEADER STYLES
 		height: 100%;
 		width: 100%;
 		padding: 150px 0;
+		text-align: center;
 		margin-bottom: 0;
 	}
 }
@@ -302,14 +303,16 @@ POSTS & CONTENT STYLES
 		// padding: 0rem 0rem 1rem;
 	}
 	.entry-content {
-		margin-bottom: 60px;
+		// margin-bottom: 60px;
 	}
 }
 
 #main {
 	.post {
-		margin-top: 100px;
-		margin-bottom: 100px;
+		margin-top: 60px;
+		margin-bottom: 60px;
+		padding-right: 40px;
+
 		header {
 			margin-bottom: 0;
 		}
@@ -322,8 +325,8 @@ POSTS & CONTENT STYLES
 
 }
 
-.article-header {
-
+#main .post .article-header {
+	text-align: left;
 }
 
 .single-title {
@@ -348,6 +351,7 @@ POSTS & CONTENT STYLES
 .more-link {
 	background-color: get-color(primary);
 	padding: 6px 10px;
+	color: #fff;
 	button {
 		color: #fff;
 		text-transform: uppercase;
@@ -372,6 +376,12 @@ POSTS & CONTENT STYLES
 	img {
 		max-width: 100%;
 		height: auto;
+		// margin-bottom: 20px;
+
+		&.wp-post-image {
+			width: 100%;
+			margin-bottom: 20px;
+		}
 	}
 
 	.alignleft, img.alignleft {
@@ -402,6 +412,9 @@ POSTS & CONTENT STYLES
 		padding: 10px;
 		}
 
+		li {
+			margin-bottom: 10px;
+		}
 }
 
 .wp-caption {
@@ -422,6 +435,8 @@ POSTS & CONTENT STYLES
 		text-align: center;
 	}
 }
+
+
 
 // Add Foundation styling to password protect button
 .post-password-form input[type="submit"] {
@@ -465,9 +480,14 @@ PAGE NAVI STYLES
 COMMENT STYLES
 *********************/
 #comments {
+	margin-top: 40px;
 	.commentlist {
 		margin-left: 0px;
 	}
+}
+
+.comments-title {
+	font-size: 1.75rem;
 }
 
 #respond {
@@ -477,17 +497,20 @@ COMMENT STYLES
 }
 
 .commentlist {
+	.media-object-section:last-child {
+		width: 100%;
+	}
 	li {
 		position: relative;
 		clear: both;
 		overflow: hidden;
 		list-style-type: none;
 		margin-bottom: 1.5em;
-		padding: 0.7335em 10px;
+		// padding: 0.7335em 10px;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+		// &:last-child {
+		// 	margin-bottom: 0;
+		// }
 
 		ul.children {
 			margin: 0;
@@ -611,6 +634,7 @@ COMMENT STYLES
 	// comment reply link
 	.comment-reply-link {
 		float: right;
+		color: #999;
 
 		&:hover,
 		&:focus {
@@ -712,7 +736,7 @@ COMMENT FORM STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-	margin-top: 100px;
+	margin-top: 60px;
 }
 
 #searchsubmit {
@@ -866,6 +890,7 @@ ABOUT STYLES
 *********************/
 
 .about-1 {
+	margin-top: 60px;
 	margin-bottom: 60px;
 	.faq-item {
 		margin-bottom: 40px;
@@ -915,7 +940,7 @@ WORKSHOPS STYLES
 *********************/
 
 #workshops-1 {
-	padding: 0 20px 80px;
+	padding: 60px 20px;
 	.service {
 		height: 400px;
 		padding: 20px;
@@ -951,6 +976,7 @@ BIO STYLES
 *********************/
 
 #bio-1 {
+	margin-top: 60px;
   margin-bottom: 60px;
 	h4 {
     margin-bottom: 20px;

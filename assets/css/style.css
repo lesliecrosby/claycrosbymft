@@ -50,6 +50,16 @@ span.amp {
 CSS3 GRADIENTS.
 *********************/
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
+blockquote {
+  font-weight: 600; }
+
+.button {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-family: "Open Sans", Arial, sans-serif; }
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.3.0
@@ -972,7 +982,6 @@ select {
 button {
   padding: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: 0;
   border-radius: 0;
@@ -1916,11 +1925,11 @@ dl {
 
 blockquote {
   margin: 0 0 1rem;
-  padding: 0.5625rem 1.25rem 0 1.1875rem;
-  border-left: 1px solid #cacaca; }
+  padding: 0.5625rem 1.25rem 0.0625rem 1.1875rem;
+  border-left: 1px solid #0a0a0a; }
   blockquote, blockquote p {
     line-height: 1.6;
-    color: #8a8a8a; }
+    color: #0a0a0a; }
 
 cite {
   display: block;
@@ -2081,7 +2090,6 @@ textarea {
   color: #0a0a0a;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none; }
   [type='text']:focus, [type='password']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='week']:focus, [type='email']:focus, [type='number']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='url']:focus, [type='color']:focus,
   textarea:focus {
@@ -2095,10 +2103,6 @@ textarea {
   max-width: 100%; }
   textarea[rows] {
     height: auto; }
-
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #cacaca; }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
@@ -2117,7 +2121,6 @@ textarea[readonly] {
 [type='submit'],
 [type='button'] {
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border-radius: 0; }
 
@@ -2242,7 +2245,6 @@ select {
   margin: 0 0 1rem;
   padding: 0.5rem;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: 1px solid #cacaca;
   border-radius: 0;
@@ -2279,8 +2281,6 @@ select {
 .is-invalid-input:not(:focus) {
   border-color: #cc4b37;
   background-color: #f9ecea; }
-  .is-invalid-input:not(:focus)::-webkit-input-placeholder {
-    color: #cc4b37; }
   .is-invalid-input:not(:focus):-ms-input-placeholder {
     color: #cc4b37; }
   .is-invalid-input:not(:focus)::placeholder {
@@ -3491,7 +3491,6 @@ select {
   background-color: #e6e6e6;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -ms-touch-action: none;
@@ -3585,7 +3584,6 @@ html.is-reveal-open body {
   min-height: 100%;
   overflow: hidden;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
 
@@ -3681,7 +3679,6 @@ html.is-reveal-open body {
   font-weight: bold;
   color: #fefefe;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
 
@@ -4228,15 +4225,12 @@ HEADER STYLES
 .header ul.off-canvas-list li {
   list-style: none; }
 
-#main header {
-  text-align: center;
-  margin-bottom: 80px; }
-
 .article-header .page-title {
   background-color: rgba(51, 81, 96, 0.4);
   height: 100%;
   width: 100%;
   padding: 150px 0;
+  text-align: center;
   margin-bottom: 0; }
 
 .page-id-6 #main header {
@@ -4372,14 +4366,15 @@ NAVIGATION STYLES
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#content .entry-content {
-  margin-bottom: 60px; }
-
 #main .post {
-  margin-top: 100px;
-  margin-bottom: 100px; }
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding-right: 40px; }
   #main .post header {
     margin-bottom: 0; }
+
+#main .post .article-header {
+  text-align: left; }
 
 .page-title {
   color: #fff; }
@@ -4389,7 +4384,8 @@ POSTS & CONTENT STYLES
 
 .more-link {
   background-color: #2a475e;
-  padding: 6px 10px; }
+  padding: 6px 10px;
+  color: #fff; }
   .more-link button {
     color: #fff;
     text-transform: uppercase;
@@ -4405,6 +4401,9 @@ POSTS & CONTENT STYLES
 .entry-content img {
   max-width: 100%;
   height: auto; }
+  .entry-content img.wp-post-image {
+    width: 100%;
+    margin-bottom: 20px; }
 
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
@@ -4430,6 +4429,9 @@ POSTS & CONTENT STYLES
   background: #eee;
   border: 1px solid #cecece;
   padding: 10px; }
+
+.entry-content li {
+  margin-bottom: 10px; }
 
 .wp-caption {
   max-width: 100%;
@@ -4477,21 +4479,26 @@ PAGE NAVI STYLES
 /*********************
 COMMENT STYLES
 *********************/
-#comments .commentlist {
-  margin-left: 0px; }
+#comments {
+  margin-top: 40px; }
+  #comments .commentlist {
+    margin-left: 0px; }
+
+.comments-title {
+  font-size: 1.75rem; }
 
 #respond ul {
   margin-left: 0px; }
+
+.commentlist .media-object-section:last-child {
+  width: 100%; }
 
 .commentlist li {
   position: relative;
   clear: both;
   overflow: hidden;
   list-style-type: none;
-  margin-bottom: 1.5em;
-  padding: 0.7335em 10px; }
-  .commentlist li:last-child {
-    margin-bottom: 0; }
+  margin-bottom: 1.5em; }
   .commentlist li ul.children {
     margin: 0; }
 
@@ -4532,7 +4539,8 @@ COMMENT STYLES
   line-height: 1.5em; }
 
 .commentlist .comment-reply-link {
-  float: right; }
+  float: right;
+  color: #999; }
 
 /*********************
 COMMENT FORM STYLES
@@ -4594,7 +4602,7 @@ COMMENT FORM STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  margin-top: 100px; }
+  margin-top: 60px; }
 
 .widget {
   margin-bottom: 40px; }
@@ -4699,6 +4707,7 @@ AREAS OF FOCUS STYLES
 ABOUT STYLES
 *********************/
 .about-1 {
+  margin-top: 60px;
   margin-bottom: 60px; }
   .about-1 .faq-item {
     margin-bottom: 40px; }
@@ -4737,7 +4746,7 @@ ABOUT STYLES
 WORKSHOPS STYLES
 *********************/
 #workshops-1 {
-  padding: 0 20px 80px; }
+  padding: 60px 20px; }
   #workshops-1 .service {
     height: 400px;
     padding: 20px; }
@@ -4764,6 +4773,7 @@ WORKSHOPS STYLES
 BIO STYLES
 *********************/
 #bio-1 {
+  margin-top: 60px;
   margin-bottom: 60px; }
   #bio-1 h4 {
     margin-bottom: 20px; }
